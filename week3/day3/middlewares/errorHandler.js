@@ -5,14 +5,14 @@ const errorHandler = (err, req, res, next)=>{
             message: err.message,
             stack: err.stack
         })
-    } else {
+    }else {
         if(err.isOperational){
             res.status(err.statusCode).json({
                 status: err.status,
                 message: err.message
             })
-        } else {
-            console.log('error', err)
+        }else {
+             console.log('error', err)
             res.status(500).json({
                 status: 'error',
                 message: 'something went wrong'
